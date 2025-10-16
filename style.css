@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #ffafbd, #ffc3a0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.con {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    width: 500px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.input-container {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.add-button,
+.update-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.add-button {
+    background: #49e108;
+}
+
+.add-button:hover {
+    background: #03831f;
+}
+
+.update-button {
+    background: #0812d4;
+}
+
+.update-button:hover {
+    background: #0773e6;
+}
+
+ul {
+    width: 100%;
+    max-height: 250px;
+    overflow-y: auto;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+ul li {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    padding: 12px 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+ul li span {
+    display: flex;
+    gap: 8px;
+}
+
+ul li button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.2s;
+}
+
+ul li button:hover {
+    opacity: 0.8;
+}
+
+ul li button.edit-btn {
+    background: rgb(255, 204, 0);
+    color: white;
+}
+
+ul li button.edit-btn:hover {
+    background: rgb(207, 167, 5);
+}
+
+ul li button.delete-btn {
+    background: rgb(255, 0, 0);
+    color: white;
+}
+
+ul li button.delete-btn:hover {
+    background: rgba(206, 4, 4, 0.945);
+}
+
+
+/* media queries for mobaile */
+@media (max-width: 480px) {
+    body {
+        flex-direction: column;
+        padding: 10px;
+        height: auto;
+    }
+
+    .con {
+        width: 100%;
+        border-radius: 10px;
+        padding: 15px;
+        margin-top: 20px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .input-container {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    input {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .add-button,
+    .update-button {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    ul {
+        max-height: 200px;
+    }
+
+    ul li {
+        font-size: 13px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    ul li span {
+        justify-content: flex-end;
+        width: 100%;
+    }
+}

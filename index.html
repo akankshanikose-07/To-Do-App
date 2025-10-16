@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="con">
+        <h1>To-Do List App</h1>
+        <div class="input-container">
+            <input type="text" placeholder="Enter task">
+            <button class="add-button" onclick="Add()">Add</button>
+            <button class="update-button" style="display:none;" onclick="upd()">Update</button>
+        </div>
+        <ul></ul>
+    </div>
+    <script>
+        let task = [], eind;
+        let ipr = document.querySelector("input");
+        let btnr = document.querySelectorAll("button");
+        let ulr = document.querySelector("ul");
+        function disp() {
+            let s = ""
+            for (let i = 0; i < task.length; i++) {
+                s += `<li>${task[i]} <span><button class='edit-btn' onclick="edit(${i})">Edit <i class='fa-solid fa-pen'></i></button> <button class='delete-btn' onclick="del(${i})">Delete <i class='fa-solid fa-trash'></i></button></span></li>`
+            }
+            ulr.innerHTML = s
+        }
+        function Add() {
+            if (ipr.value.trim() === "") {
+                alert("Please enter a task before adding!")
+                return
+            }
+            task.push(ipr.value.trim())
+            disp(); ipr.value = ""
+        }
+        function edit(ind) {
+            ipr.value = task[ind]
+            btnr[0].style.display = "none"
+            btnr[1].style.display = "inline-block"; eind = ind
+        }
+        function upd() {
+            if (ipr.value.trim() === "") {
+                alert("Task cannot be empty!")
+                return
+            }
+            task[eind] = ipr.value.trim();
+
+            disp()
+            btnr[1].style.display = "none"
+            btnr[0].style.display = "inline-block"
+            ipr.value = ""
+        }
+        function del(ind) {
+            task.splice(ind, 1); disp()
+        }
+    </script>
+</body>
+
+</html>
